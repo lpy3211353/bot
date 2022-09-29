@@ -58,6 +58,7 @@ public final class QiaoFuBot extends JavaPlugin {
         return redis.isNotNull(id);
     }
 
+
     private boolean check(long id) {
         return redis.isNotNull(id);
     }
