@@ -21,4 +21,7 @@ dependencies{
     implementation("redis.clients:jedis:4.3.0-m2")
     implementation("org.slf4j:slf4j-api:2.0.3")
     implementation("org.projectlombok:lombok:1.18.24")
+    implementation("com.baomidou:mybatis-plus:3.5.2")
+    implementation("mysql:mysql-connector-java:8.0.30")
+    implementation("com.zaxxer:HikariCP:5.0.1")
 }
