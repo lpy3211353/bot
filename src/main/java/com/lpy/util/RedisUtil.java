@@ -3,6 +3,7 @@ package com.lpy.util;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
+import redis.clients.jedis.params.GetExParams;
 
 import java.util.Objects;
 

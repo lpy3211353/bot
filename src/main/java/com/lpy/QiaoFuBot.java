@@ -6,6 +6,10 @@ import net.mamoe.mirai.console.plugin.jvm.JvmPluginDescriptionBuilder;
 import net.mamoe.mirai.event.GlobalEventChannel;
 import net.mamoe.mirai.event.events.FriendMessageEvent;
 import net.mamoe.mirai.event.events.GroupMessageEvent;
+import net.mamoe.mirai.message.data.Image;
+import net.mamoe.mirai.utils.ExternalResource;
+
+import java.io.File;
 
 public final class QiaoFuBot extends JavaPlugin {
     public static final QiaoFuBot INSTANCE = new QiaoFuBot();
@@ -23,7 +27,13 @@ public final class QiaoFuBot extends JavaPlugin {
         getLogger().info("QiaoFu bot!");
         GlobalEventChannel.INSTANCE.subscribeAlways(FriendMessageEvent.class, event -> {
             if (event.getSender().getId() == 931731014) {
-                event.getSender().sendMessage("测试");
+                event.getSender().sendMessage(System.getProperty("user.dir"));
+                try {
+                    Image image = ExternalResource.uploadAsImage(new File("img/bleach.png"), event.getSubject());
+                    event.getSubject().sendMessage(image);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 
