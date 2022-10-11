@@ -1,24 +1,56 @@
 package com.lpy;
 
-import com.lpy.util.RedisUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.*;
+import org.springframework.web.client.RestTemplate;
 
 
 public class Test {
 
-    Logger logger = LoggerFactory.getLogger(Test.class);
-
-
     public static void main(String[] args) {
-        RedisUtil redisUtil = RedisUtil.getInstance();
-        redisUtil.set("aa", "dd");
-        String aa = redisUtil.get("aa");
-        Test test=new Test();
-        test.log(aa);
+        RestTemplate restTemplate = new RestTemplate();
+        String url = "http://jsonplaceholder.typicode.com/posts";
+        Dto dto = Dto.builder()
+                .body("my message body")
+                .userName("lpy")
+                .userId("654321")
+                .title("my title is a title")
+                .build();
+        String str = restTemplate.postForObject(url, dto, String.class);
+        System.out.println(str);
     }
+}
 
-    void log(String str){
-        logger.info(str);
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+class Data {
+    private String userId;
+    private String id;
+    private String title;
+    private String body;
+
+    @Override
+    public String toString() {
+        return "Data{" +
+                "userId='" + userId + '\'' +
+                ", id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", body='" + body + '\'' +
+                '}';
     }
+}
+
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+class Dto {
+    private String userId;
+    private String id;
+    private String title;
+    private String body;
+    private String userName;
 }
