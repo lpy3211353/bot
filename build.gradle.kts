@@ -29,5 +29,6 @@ dependencies{
     annotationProcessor("org.projectlombok:lombok:1.18.24")
     testCompileOnly ("org.projectlombok:lombok:1.18.24")
     testAnnotationProcessor("org.projectlombok:lombok:1.18.24")
+    implementation(fileTree(mapOf("dir" to "lib", "include" to listOf("*.jar"))))
 }
 

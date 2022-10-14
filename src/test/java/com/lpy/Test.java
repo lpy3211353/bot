@@ -8,14 +8,14 @@ public class Test {
 
     public static void main(String[] args) {
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://jsonplaceholder.typicode.com/posts";
+        String url = "http://127.0.0.1:6854/demo";
         Dto dto = Dto.builder()
                 .body("my message body")
                 .userName("lpy")
                 .userId("654321")
                 .title("my title is a title")
                 .build();
-        String str = restTemplate.postForObject(url, dto, String.class);
+        Data str = restTemplate.postForObject(url, dto, Data.class);
         System.out.println(str);
     }
 }
