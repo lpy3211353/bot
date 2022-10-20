@@ -30,5 +30,8 @@ dependencies{
     testCompileOnly ("org.projectlombok:lombok:1.18.24")
     testAnnotationProcessor("org.projectlombok:lombok:1.18.24")
     implementation(fileTree(mapOf("dir" to "lib", "include" to listOf("*.jar"))))
+    implementation("com.fasterxml.jackson:jackson-base:2.14.0-rc2")
+    implementation("com.fasterxml.jackson:jackson-parent:2.14-rc2")
+    implementation("com.fasterxml.jackson:jackson-bom:2.14.0-rc2")
 }
 
